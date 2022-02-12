@@ -1,0 +1,191 @@
+[
+  {
+    "id": "experience",
+    "title": "经验要求",
+    "multi": true,
+    "buttons": [
+      {
+        "name": "不限",
+        "exclusive": true,
+        "value": "0",
+        "active": true
+      },
+      {
+        "name": "在校/应届",
+        "exclusive": false,
+        "value": "109",
+        "active": false
+      },
+      {
+        "name": "1年以内",
+        "exclusive": false,
+        "value": "103",
+        "active": false
+      },
+      {
+        "name": "1-3年",
+        "exclusive": false,
+        "value": "104",
+        "active": false
+      },
+      {
+        "name": "3-5年",
+        "exclusive": false,
+        "value": "105",
+        "active": false
+      },
+      {
+        "name": "5-10年",
+        "exclusive": false,
+        "value": "106",
+        "active": false
+      },
+      {
+        "name": "10年以上",
+        "exclusive": false,
+        "value": "107",
+        "active": false
+      }
+    ]
+  },
+  {
+    "id": "degree",
+    "title": "学历要求",
+    "multi": true,
+    "buttons": [
+      {
+        "name": "不限",
+        "exclusive": true,
+        "value": "0",
+        "active": true
+      },
+      {
+        "name": "初中及以下",
+        "exclusive": false,
+        "value": "209",
+        "active": false
+      },
+      {
+        "name": "中专/中技",
+        "exclusive": false,
+        "value": "208",
+        "active": false
+      },
+      {
+        "name": "高中",
+        "exclusive": false,
+        "value": "206",
+        "active": false
+      },
+      {
+        "name": "大专",
+        "exclusive": false,
+        "value": "202",
+        "active": false
+      },
+      {
+        "name": "本科",
+        "exclusive": false,
+        "value": "203",
+        "active": false
+      },
+      {
+        "name": "硕士",
+        "exclusive": false,
+        "value": "204",
+        "active": false
+      },
+      {
+        "name": "博士",
+        "exclusive": false,
+        "value": "205",
+        "active": false
+      }
+    ]
+  },
+  {
+    "id": "intention",
+    "title": "求职意向",
+    "multi": true,
+    "buttons": [
+      {
+        "name": "不限",
+        "exclusive": true,
+        "value": "0",
+        "active": true
+      },
+      {
+        "name": "离职-随时到岗",
+        "exclusive": false,
+        "value": "701"
+      },
+      {
+        "name": "在职-暂不考虑",
+        "exclusive": false,
+        "value": "702",
+        "active": false
+      },
+      {
+        "name": "在职-考虑机会",
+        "exclusive": false,
+        "value": "703",
+        "active": false
+      },
+      {
+        "name": "在职-月内到岗",
+        "exclusive": false,
+        "value": "704",
+        "active": false
+      }
+    ]
+  },
+  {
+    "id": "salary",
+    "title": "薪资待遇[单选]",
+    "multi": false,
+    "buttons": [
+      {
+        "name": "不限",
+        "exclusive": false,
+        "value": "0",
+        "active": true
+      },
+      {
+        "name": "3k以下",
+        "exclusive": false,
+        "value": "402",
+        "active": false
+      },
+      {
+        "name": "3-5k",
+        "exclusive": false,
+        "value": "403",
+        "active": false
+      },
+      {
+        "name": "5-10k",
+        "exclusive": false,
+        "value": "404",
+        "active": false
+      },
+      {
+        "name": "10-20k",
+        "exclusive": false,
+        "value": "405",
+        "active": false
+      },
+      {
+        "name": "20-50k",
+        "exclusive": false,
+        "value": "406",
+        "active": false
+      },
+      {
+        "name": "50k以上",
+        "exclusive": false,
+        "value": "407",
+        "active": false
+      }
+    ]
+  }
+]
