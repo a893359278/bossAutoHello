@@ -25,7 +25,7 @@ public interface BossHelloService {
      * @param request
      * @return
      */
-    EmployeeInfoModel getEmployeeInfos(EmployeeInfoRequest request);
+    CommonResponse<EmployeeInfoModel> getEmployeeInfos(EmployeeInfoRequest request);
 
 
     /**

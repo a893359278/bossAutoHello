@@ -59,7 +59,7 @@ public class HutoolBossHelloService extends AbstractBossHelloService {
     }
 
     @Override
-    public EmployeeInfoModel getEmployeeInfos(EmployeeInfoRequest request) {
+    public CommonResponse<EmployeeInfoModel> getEmployeeInfos(EmployeeInfoRequest request) {
         log.info("url [{}], param [{}]", EMPLOYEE_INFO_URL, JSON.toJSONString(request));
 
         Map<String, Object> param = new HashMap<>();
@@ -69,8 +69,7 @@ public class HutoolBossHelloService extends AbstractBossHelloService {
                 .header(Header.COOKIE, cookie)
                 .header(Header.USER_AGENT, USER_AGENT)
                 .execute().body();
-        CommonResponse<EmployeeInfoModel> response = JSON.parseObject(result, employeeInfoTypeReference);
-        return response.getZpData();
+        return JSON.parseObject(result, employeeInfoTypeReference);
     }
 
 }

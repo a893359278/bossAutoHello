@@ -17,9 +17,12 @@ idea 需要安装 lombok 插件
 
 
 ### 如何修改每次打招呼的睡眠时间？
-默认的范围是 [10,20) 秒  打一次招呼
-设置系统环境变量
++ 默认 [20,40) 秒  打一次招呼.  
++ 间隔 60s 翻页.
+
+设置系统环境变量修改上述行为
 ```properties
-boss.hello.sleepStart=10
-boss.hello.sleepEnd=20
+boss.hello.sleepStart=20
+boss.hello.sleepEnd=40
+boss.heelo.sleepPage=60
 ```

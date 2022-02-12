@@ -209,7 +209,12 @@ public class MainFrame extends JFrame {
 
                 request.setPage(currentPage);
 
-                EmployeeInfoModel employeeInfos = bossHelloService.getEmployeeInfos(request);
+                CommonResponse<EmployeeInfoModel> employeeInfosResponse = bossHelloService.getEmployeeInfos(request);
+                if (employeeInfosResponse.getCode() != 0) {
+                    JOptionPane.showConfirmDialog(pagePanel, employeeInfosResponse.getMessage(), "出现异常拉", -1);
+                }
+
+                EmployeeInfoModel employeeInfos = employeeInfosResponse.getZpData();
                 List<EmployeeInfoModel.GeekList> geekList = employeeInfos.getGeekList();
 
                 String jid = employeeInfos.getEncryptJobId();
@@ -243,8 +248,8 @@ public class MainFrame extends JFrame {
                             return;
                         }
 
-                        int endInt = Integer.parseInt(System.getProperty("boss.hello.sleepEnd", "20"));
-                        int startInt = Integer.parseInt(System.getProperty("boss.hello.sleepStart", "10"));
+                        int endInt = Integer.parseInt(System.getProperty("boss.hello.sleepEnd", "40"));
+                        int startInt = Integer.parseInt(System.getProperty("boss.hello.sleepStart", "20"));
                         int sleepSecond = RandomUtil.randomInt(startInt, endInt);
                         showMessageTextArea.insert("休息【" + sleepSecond + "】秒" + lineSplit, 0);
                         showMessageTextArea.paintImmediately(showMessageTextArea.getBounds());
@@ -254,9 +259,10 @@ public class MainFrame extends JFrame {
                     }
                 }
 
-
                 currentPage++;
-                showMessageTextArea.insert("当前页【" + (currentPage - 1) + "】打招呼结束,前往下一页【" + currentPage + "】"  + lineSplit, 0);
+                int sleepPage = Integer.parseInt(System.getProperty("boss.hello.sleepPage", "60"));
+                showMessageTextArea.insert("休息【" + 60 +"】秒,当前页【" + (currentPage - 1) + "】打招呼结束,准备前往下一页【" + currentPage + "】"  + lineSplit, 0);
+                ThreadUtil.sleep(sleepPage, TimeUnit.SECONDS);
                 showMessageTextArea.paintImmediately(showMessageTextArea.getBounds());
             }
 
