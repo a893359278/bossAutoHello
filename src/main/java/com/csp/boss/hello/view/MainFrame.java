@@ -243,8 +243,8 @@ public class MainFrame extends JFrame {
                             return;
                         }
 
-                        int endInt = Integer.parseInt(System.getProperty("boss.hello.sleepEnd", "2"));
-                        int startInt = Integer.parseInt(System.getProperty("boss.hello.sleepStart", "1"));
+                        int endInt = Integer.parseInt(System.getProperty("boss.hello.sleepEnd", "20"));
+                        int startInt = Integer.parseInt(System.getProperty("boss.hello.sleepStart", "10"));
                         int sleepSecond = RandomUtil.randomInt(startInt, endInt);
                         showMessageTextArea.insert("休息【" + sleepSecond + "】秒" + lineSplit, 0);
                         showMessageTextArea.paintImmediately(showMessageTextArea.getBounds());
