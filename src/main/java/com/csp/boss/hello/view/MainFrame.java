@@ -199,6 +199,8 @@ public class MainFrame extends JFrame {
 
         @Override
         public void run() {
+            AccountJobInfoModel currentJob = jobPanel.getCurrentJob();
+
             while (currentPage <= stopPage && !stop.get()) {
                 EmployeeInfoRequest request = new EmployeeInfoRequest();
 
@@ -206,6 +208,7 @@ public class MainFrame extends JFrame {
                 request.setSalary(getChoiceValue(ChoiceValueEnum.salary));
                 request.setIntention(getChoiceValue(ChoiceValueEnum.intention));
                 request.setExperience(getChoiceValue(ChoiceValueEnum.experience));
+                request.setJobId(currentJob.getJid());
 
                 request.setPage(currentPage);
 
@@ -231,6 +234,8 @@ public class MainFrame extends JFrame {
                         String securityId = card.getSecurityId();
                         postHelloRequest.setExpectId(String.valueOf(expectId));
                         postHelloRequest.setSecurityId(securityId);
+                        postHelloRequest.setGid(item.getEncryptGeekId());
+                        postHelloRequest.setLid(item.getGeekCard().getLid());
 
                         showMessageTextArea.insert("已打招呼【" + total + "】个, 正在向" + "【" + card.getGeekName() + "】" + "打招呼" + lineSplit, 0);
                         CommonResponse<PostHelloModel> hello = bossHelloService.postHello(postHelloRequest);
@@ -248,8 +253,8 @@ public class MainFrame extends JFrame {
                             return;
                         }
 
-                        int endInt = Integer.parseInt(System.getProperty("boss.hello.sleepEnd", "40"));
-                        int startInt = Integer.parseInt(System.getProperty("boss.hello.sleepStart", "20"));
+                        int endInt = Integer.parseInt(System.getProperty("boss.hello.sleepEnd", "20"));
+                        int startInt = Integer.parseInt(System.getProperty("boss.hello.sleepStart", "10"));
                         int sleepSecond = RandomUtil.randomInt(startInt, endInt);
                         showMessageTextArea.insert("休息【" + sleepSecond + "】秒" + lineSplit, 0);
                         showMessageTextArea.paintImmediately(showMessageTextArea.getBounds());
@@ -260,8 +265,8 @@ public class MainFrame extends JFrame {
                 }
 
                 currentPage++;
-                int sleepPage = Integer.parseInt(System.getProperty("boss.hello.sleepPage", "60"));
-                showMessageTextArea.insert("休息【" + 60 +"】秒,当前页【" + (currentPage - 1) + "】打招呼结束,准备前往下一页【" + currentPage + "】"  + lineSplit, 0);
+                int sleepPage = Integer.parseInt(System.getProperty("boss.hello.sleepPage", "20"));
+                showMessageTextArea.insert("休息【" + 20 +"】秒,当前页【" + (currentPage - 1) + "】打招呼结束,准备前往下一页【" + currentPage + "】"  + lineSplit, 0);
                 ThreadUtil.sleep(sleepPage, TimeUnit.SECONDS);
                 showMessageTextArea.paintImmediately(showMessageTextArea.getBounds());
             }
